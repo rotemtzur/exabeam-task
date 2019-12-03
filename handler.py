@@ -20,7 +20,8 @@ def TwitterServerless1(event, context):
     lengths = []
     
     # Search tweeter for recent statuses with the term provided
-    for status in tweepy.Cursor(api.search, q='\"{}\" -filter:retweets'.format(event['term']), result_type='recent', tweet_mode='extended').items(1000):
+    for status in tweepy.Cursor(api.search, q='\"{}\" -filter:retweets'.format(event['term']),
+                                result_type='recent', tweet_mode='extended').items(1000):
         tweet=status.full_text
         lengths.append (len(tweet))
 
